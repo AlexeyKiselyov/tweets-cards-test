@@ -2,7 +2,7 @@
   "name": "tweets-cards-test",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://AlexeyKiselyov/github.io/tweets-cards-test",
+  "homepage": "https://alexeykiselyov.github.io/tweets-cards-test/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^13.4.0",
