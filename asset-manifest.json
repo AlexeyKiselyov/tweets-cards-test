@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/github.io/tweets-cards-test/static/css/main.073c9b0a.css",
-    "main.js": "/github.io/tweets-cards-test/static/js/main.9a06b383.js",
-    "static/media/avatar.svg": "/github.io/tweets-cards-test/static/media/avatar.918076df19e203d43dc62fa847304f07.svg",
-    "static/media/chat.svg": "/github.io/tweets-cards-test/static/media/chat.23dcbc3cc8ccc9682f24b4acffb5efb2.svg",
-    "static/media/goit-logo.svg": "/github.io/tweets-cards-test/static/media/goit-logo.e917114d7945c04c85a8946a331d28b6.svg",
-    "index.html": "/github.io/tweets-cards-test/index.html",
-    "main.073c9b0a.css.map": "/github.io/tweets-cards-test/static/css/main.073c9b0a.css.map",
-    "main.9a06b383.js.map": "/github.io/tweets-cards-test/static/js/main.9a06b383.js.map"
+    "main.css": "/tweets-cards-test/static/css/main.073c9b0a.css",
+    "main.js": "/tweets-cards-test/static/js/main.98d3758c.js",
+    "static/media/avatar.svg": "/tweets-cards-test/static/media/avatar.918076df19e203d43dc62fa847304f07.svg",
+    "static/media/chat.svg": "/tweets-cards-test/static/media/chat.23dcbc3cc8ccc9682f24b4acffb5efb2.svg",
+    "static/media/goit-logo.svg": "/tweets-cards-test/static/media/goit-logo.e917114d7945c04c85a8946a331d28b6.svg",
+    "index.html": "/tweets-cards-test/index.html",
+    "main.073c9b0a.css.map": "/tweets-cards-test/static/css/main.073c9b0a.css.map",
+    "main.98d3758c.js.map": "/tweets-cards-test/static/js/main.98d3758c.js.map"
   },
   "entrypoints": [
     "static/css/main.073c9b0a.css",
-    "static/js/main.9a06b383.js"
+    "static/js/main.98d3758c.js"
   ]
 }
