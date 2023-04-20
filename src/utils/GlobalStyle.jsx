@@ -21,8 +21,9 @@ html {
 
 body {
     margin: 0;
-  font-family: 'Manrope', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
+  font-family: 'Montserrat','Manrope', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
     sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+    font-weight: 500;
     &::-webkit-scrollbar {
     width: 0px;
   }

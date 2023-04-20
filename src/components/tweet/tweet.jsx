@@ -5,28 +5,42 @@ import {
   DecorBlockLine,
   DecorBlockCircle,
   AvatarWrapper,
-  ImgAvatar,
   TweetsParagragh,
   FollowersParagragh,
   FollowBtn,
-} from "./tweets.styled.js";
+} from "./Tweets.styled.js";
 import logoGoit from "../../assets/goit-logo.svg";
 import chatImg from "../../assets/chat.svg";
-import avatarImg from "../../assets/avatar.svg";
+import { useState } from "react";
 
-export const Tweet = () => {
+export const Tweet = ({ data }) => {
+  const { tweets, followers, avatar } = data;
+
+  const [followersCount, setFollowersCount] = useState(followers);
+  const [follow, setFollow] = useState(false);
+
+  const onFolowBtnClick = () => {
+    if (!follow) {
+      setFollowersCount((prev) => prev + 1);
+      setFollow(true);
+    } else {
+      setFollowersCount((prev) => prev - 1);
+      setFollow(false);
+    }
+  };
+
   return (
     <Wrapper>
       <GoitLogo src={logoGoit} alt="Gi IT logo" width="76" />
       <ImgChat src={chatImg} alt="Chat and tweets image" width="308px" />
       <DecorBlockLine />
       <DecorBlockCircle />
-      <AvatarWrapper>
-        <ImgAvatar src={avatarImg} alt="Avagar image" width="62px" />
-      </AvatarWrapper>
-      <TweetsParagragh>777 tweets</TweetsParagragh>
-      <FollowersParagragh>100,500 Followers</FollowersParagragh>
-      <FollowBtn>Follow</FollowBtn>
+      <AvatarWrapper url={avatar} />
+      <TweetsParagragh>{tweets} tweets</TweetsParagragh>
+      <FollowersParagragh>{followersCount} Followers</FollowersParagragh>
+      <FollowBtn type="button" onClick={onFolowBtnClick} color={follow}>
+        Follow
+      </FollowBtn>
     </Wrapper>
   );
 };

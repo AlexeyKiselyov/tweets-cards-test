@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import avatarImg from "../../assets/avatar.svg";
 
 export const Wrapper = styled.div`
   width: 380px;
@@ -52,7 +53,7 @@ export const DecorBlockCircle = styled.div`
   box-shadow: 0px 4.39163px 4.39163px rgba(0, 0, 0, 0.06),
     inset 0px -2.19582px 4.39163px #ae7be3,
     inset 0px 4.39163px 3.29372px #fbf8ff;
-  border-radius: 86px;
+  border-radius: 50%;
 `;
 
 export const AvatarWrapper = styled.div`
@@ -64,17 +65,16 @@ export const AvatarWrapper = styled.div`
 
   background-color: #5736a3;
 
-  border-radius: 86px;
-`;
+  border-radius: 50%;
 
-export const ImgAvatar = styled.img``;
+  background-image: url(${avatarImg});
+  object-fit: contain;
+`;
 
 export const TweetsParagragh = styled.p`
   margin-bottom: 16px;
 
   text-align: center;
-  font-family: "Montserrat";
-  font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
   text-transform: uppercase;
@@ -85,8 +85,6 @@ export const FollowersParagragh = styled.p`
   margin-bottom: 26px;
 
   text-align: center;
-  font-family: "Montserrat";
-  font-weight: 500;
   font-size: 20px;
   line-height: 1.2;
   text-transform: uppercase;
@@ -103,11 +101,14 @@ export const FollowBtn = styled.button`
   width: 196px;
   height: 50px;
 
-  background: #ebd8ff;
+  /* background: #ebd8ff;
+  background: #5cd3a8; */
+  background: ${(p) => {
+    return p.color ? "#5cd3a8" : "#ebd8ff";
+  }};
   box-shadow: 0px 3.43693px 3.43693px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
 
-  font-family: "Montserrat";
   font-weight: 600;
   font-size: 18px;
   line-height: 1.22;

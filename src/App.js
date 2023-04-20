@@ -1,10 +1,11 @@
 import "./App.css";
-import { Tweet } from "./components/tweet/tweet";
+import { TweetsList } from "./pages/TweetsPage/TweetsPage";
 
 function App() {
   return (
     <>
-      <Tweet />
+      {/* <Tweet /> */}
+      <TweetsList />
     </>
   );
 }
