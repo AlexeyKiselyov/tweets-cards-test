@@ -1,41 +1,37 @@
+import { useEffect, useState } from 'react';
 import { Tweet } from '../../components/Tweet/Tweet';
-import { List } from './TweetsPage.styled.js';
-
-const users = [
-  {
-    id: 1,
-    user: 'Elon Reeve Musk',
-    tweets: 777,
-    followers: 100500,
-    avatar:
-      'https://res.cloudinary.com/digml0rat/image/upload/v1682020896/tweets-cards-test/avatar_ihnk7c.png',
-  },
-  {
-    id: 2,
-    user: 'Dave Ben',
-    tweets: 666,
-    followers: 1500,
-    avatar:
-      'https://res.cloudinary.com/digml0rat/image/upload/v1682020896/tweets-cards-test/avatar_ihnk7c.png',
-  },
-  {
-    id: 3,
-    user: 'Bill Morgan',
-    tweets: 555,
-    followers: 100,
-    avatar:
-      'https://res.cloudinary.com/digml0rat/image/upload/v1682020896/tweets-cards-test/avatar_ihnk7c.png',
-  },
-];
+import { BtnLoadMore, List } from './TweetsPage.styled.js';
+import getUsers from '../../services/getUsers';
 
 export const TweetsList = () => {
+  const [users, setUsers] = useState([]);
+  const [pageNumber, setPageNumber] = useState(1);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    getUsers(pageNumber, setError, setIsLoading, setUsers);
+  }, [pageNumber]);
+
+  const onLoadMoreBtn = () => {
+    setPageNumber(prev => prev + 1);
+  };
+
   return (
     <>
-      <List>
-        {users.map(user => {
-          return <Tweet key={user.id} data={user} />;
-        })}
-      </List>
+      {isLoading && 'Loading...'}
+      {error ? (
+        error
+      ) : (
+        <List>
+          {users.map(user => {
+            return <Tweet key={user._id} data={user} />;
+          })}
+        </List>
+      )}
+      <BtnLoadMore type="button" onClick={onLoadMoreBtn}>
+        Load more
+      </BtnLoadMore>
     </>
   );
 };

@@ -13,18 +13,20 @@ import {
 import { commaFollowersFunc } from '../../utils';
 
 export const Tweet = ({ data }) => {
-  const { tweets, followers, avatar } = data;
+  const { tweets, followers, avatar, isFollow } = data;
 
   const [followersCount, setFollowersCount] = useState(followers);
-  const [follow, setFollow] = useState(false);
+  const [follow, setFollow] = useState(isFollow);
+
+  const followBtnColor = follow ? 'active' : 'basic';
 
   const onFolowBtnClick = () => {
     if (!follow) {
       setFollowersCount(prev => prev + 1);
-      setFollow(true);
+      setFollow('active');
     } else {
       setFollowersCount(prev => prev - 1);
-      setFollow(false);
+      setFollow('bacic');
     }
   };
 
@@ -37,7 +39,7 @@ export const Tweet = ({ data }) => {
       <FollowersParagragh>
         {commaFollowersFunc(followersCount)} Followers
       </FollowersParagragh>
-      <FollowBtn type="button" onClick={onFolowBtnClick} color={follow}>
+      <FollowBtn type="button" onClick={onFolowBtnClick} color={followBtnColor}>
         {follow ? 'Following' : 'Follow'}
       </FollowBtn>
     </Wrapper>
