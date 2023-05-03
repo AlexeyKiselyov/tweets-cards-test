@@ -14,7 +14,6 @@ export default function getUsers(
   setIsLoading(true);
   axios(`users?page=${pageNumber}&limit=${6}`)
     .then(res => {
-      console.log(res.data);
       const { users, totalPages } = res.data;
       setTotalPages(totalPages);
       setUsers(prev => {

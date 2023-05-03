@@ -19,20 +19,20 @@ html {
 
 
 body {
-    margin: 0;
+  margin: 0;
   font-family: 'Montserrat','Manrope', 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial,
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
-    font-weight: 500;
+  sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  font-weight: 500;
 
-    &::-webkit-scrollbar {
-   width: 10px;
-  height: 10px;
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
   }
+
   &::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-
   }
 
   &::-webkit-scrollbar-thumb {

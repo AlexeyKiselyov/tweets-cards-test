@@ -11,9 +11,10 @@ import {
 } from './Tweet.styled.js';
 
 import { commaFollowersFunc } from '../../utils';
+import { putchIsFollow } from '../../services/putchIsFollow.js';
 
-export const Tweet = ({ data }) => {
-  const { tweets, followers, avatar, isFollow } = data;
+export const Tweet = ({ data, setIsLoading, setError }) => {
+  const { _id, tweets, followers, avatar, isFollow } = data;
 
   const [followersCount, setFollowersCount] = useState(followers);
   const [follow, setFollow] = useState(isFollow);
@@ -21,13 +22,23 @@ export const Tweet = ({ data }) => {
   const followBtnColor = follow ? 'active' : 'basic';
 
   const onFolowBtnClick = () => {
-    if (!follow) {
-      setFollowersCount(prev => prev + 1);
-      setFollow(!follow);
-    } else {
-      setFollowersCount(prev => prev - 1);
-      setFollow(!follow);
-    }
+    putchIsFollow(
+      setError,
+      setIsLoading,
+      follow,
+      followersCount,
+      setFollow,
+      setFollowersCount,
+      _id
+    );
+
+    // if (!follow) {
+    //   setFollowersCount(prev => prev + 1);
+    //   putchIsFollow(setError, setIsLoading, follow, setFollow, _id);
+    // } else {
+    //   setFollowersCount(prev => prev - 1);
+    //   putchIsFollow(setError, setIsLoading, follow, setFollow, _id);
+    // }
   };
 
   return (
