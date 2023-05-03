@@ -1,11 +1,16 @@
-import "./App.css";
-import { TweetsList } from "./pages/TweetsPage/TweetsPage";
+import { TweetsList } from './pages/TweetsPage/TweetsPage';
+
+import { Section } from './components/Common/Section/Section';
+import { Container } from './components/Common/Conteiner/Conteiner';
 
 function App() {
   return (
     <>
-      {/* <Tweet /> */}
-      <TweetsList />
+      <Section>
+        <Container>
+          <TweetsList />
+        </Container>
+      </Section>
     </>
   );
 }

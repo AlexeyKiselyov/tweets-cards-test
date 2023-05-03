@@ -23,10 +23,10 @@ export const Tweet = ({ data }) => {
   const onFolowBtnClick = () => {
     if (!follow) {
       setFollowersCount(prev => prev + 1);
-      setFollow('active');
+      setFollow(!follow);
     } else {
       setFollowersCount(prev => prev - 1);
-      setFollow('bacic');
+      setFollow(!follow);
     }
   };
 

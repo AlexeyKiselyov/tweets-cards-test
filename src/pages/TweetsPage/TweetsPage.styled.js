@@ -3,8 +3,9 @@ import styled from 'styled-components';
 export const List = styled.ul`
   position: relative;
   display: grid;
+  justify-items: center;
   grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
-  gap: 32px;
+  gap: 10px;
   margin-bottom: 20px;
 
   @media screen and (min-width: 768px) {
@@ -12,7 +13,7 @@ export const List = styled.ul`
   }
 
   @media screen and (min-width: 1280px) {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 `;
 

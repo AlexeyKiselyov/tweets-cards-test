@@ -1,16 +1,24 @@
 import axios from 'axios';
 
 const { REACT_APP_API_URL } = process.env;
-console.log(REACT_APP_API_URL);
-// axios.defaults.baseURL = REACT_APP_API_URL;
+axios.defaults.baseURL = REACT_APP_API_URL;
 
-export default function getUsers(pageNumber, setError, setIsLoading, setUsers) {
+export default function getUsers(
+  pageNumber,
+  setError,
+  setIsLoading,
+  setUsers,
+  setTotalPages
+) {
   setError(false);
   setIsLoading(true);
-  axios(`http://localhost:4000/api/users?page=${pageNumber}&limit=${8}`)
+  axios(`users?page=${pageNumber}&limit=${6}`)
     .then(res => {
+      console.log(res.data);
+      const { users, totalPages } = res.data;
+      setTotalPages(totalPages);
       setUsers(prev => {
-        return [...prev, ...res.data];
+        return [...prev, ...users];
       });
     })
     .catch(error => setError(error.message))

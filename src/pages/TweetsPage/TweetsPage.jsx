@@ -6,14 +6,18 @@ import getUsers from '../../services/getUsers';
 export const TweetsList = () => {
   const [users, setUsers] = useState([]);
   const [pageNumber, setPageNumber] = useState(1);
+  const [totalPages, setTotalPages] = useState(null);
+
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getUsers(pageNumber, setError, setIsLoading, setUsers);
+    getUsers(pageNumber, setError, setIsLoading, setUsers, setTotalPages);
   }, [pageNumber]);
 
   const onLoadMoreBtn = () => {
+    if (totalPages && totalPages - pageNumber < 0) return;
+
     setPageNumber(prev => prev + 1);
   };
 
