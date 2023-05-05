@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import avatarImg from '../../assets/images/avatar.png';
+
 import goitLogo from '../../assets/images/goitLogo.png';
 import chatImg from '../../assets/images/chat.png';
 
@@ -67,7 +67,7 @@ export const AvatarWrapper = styled.div`
 
   border-radius: 50%;
 
-  background-image: url(${avatarImg});
+  background-image: url(${p => p.url});
   background-size: 62px;
   object-fit: contain;
 

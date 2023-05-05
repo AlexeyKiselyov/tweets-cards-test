@@ -31,14 +31,6 @@ export const Tweet = ({ data, setIsLoading, setError }) => {
       setFollowersCount,
       _id
     );
-
-    // if (!follow) {
-    //   setFollowersCount(prev => prev + 1);
-    //   putchIsFollow(setError, setIsLoading, follow, setFollow, _id);
-    // } else {
-    //   setFollowersCount(prev => prev - 1);
-    //   putchIsFollow(setError, setIsLoading, follow, setFollow, _id);
-    // }
   };
 
   return (
