@@ -8,11 +8,14 @@ export default function getUsers(
   setError,
   setIsLoading,
   setUsers,
-  setTotalPages
+  setTotalPages,
+  filter
 ) {
+  const query = filter === null ? '' : `&isFollow=${filter}`;
+
   setError(false);
   setIsLoading(true);
-  axios(`users?page=${pageNumber}&limit=${6}`)
+  axios(`users?page=${pageNumber}&limit=${6}${query}`)
     .then(res => {
       const { users, totalPages } = res.data;
       setTotalPages(totalPages);

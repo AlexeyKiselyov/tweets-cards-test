@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { commaFollowersFunc } from '../../utils';
+import { putchIsFollow } from '../../services/putchIsFollow.js';
 
 import {
   Wrapper,
@@ -10,25 +11,19 @@ import {
   FollowBtn,
 } from './Tweet.styled.js';
 
-import { commaFollowersFunc } from '../../utils';
-import { putchIsFollow } from '../../services/putchIsFollow.js';
-
-export const Tweet = ({ data, setIsLoading, setError }) => {
+export const Tweet = ({ data, setData, query, setIsLoading, setError }) => {
   const { _id, tweets, followers, avatar, isFollow } = data;
 
-  const [followersCount, setFollowersCount] = useState(followers);
-  const [follow, setFollow] = useState(isFollow);
-
-  const followBtnColor = follow ? 'active' : 'basic';
+  const followBtnColor = isFollow ? 'active' : 'basic';
 
   const onFolowBtnClick = () => {
     putchIsFollow(
       setError,
       setIsLoading,
-      follow,
-      followersCount,
-      setFollow,
-      setFollowersCount,
+      setData,
+      followers,
+      isFollow,
+      query,
       _id
     );
   };
@@ -38,12 +33,12 @@ export const Tweet = ({ data, setIsLoading, setError }) => {
       <DecorBlockLine />
       <DecorBlockCircle />
       <AvatarWrapper url={avatar} />
-      <TweetsParagragh>{tweets} tweets</TweetsParagragh>
+      <TweetsParagragh>{tweets} Tweets</TweetsParagragh>
       <FollowersParagragh>
-        {commaFollowersFunc(followersCount)} Followers
+        {commaFollowersFunc(followers)} Followers
       </FollowersParagragh>
       <FollowBtn type="button" onClick={onFolowBtnClick} color={followBtnColor}>
-        {follow ? 'Following' : 'Follow'}
+        {isFollow ? 'Following' : 'Follow'}
       </FollowBtn>
     </Wrapper>
   );

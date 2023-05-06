@@ -1,5 +1,26 @@
 import styled from 'styled-components';
 
+import Dropdown from 'react-dropdown';
+import 'react-dropdown/style.css';
+
+export const DropdownStyle = styled(Dropdown)`
+  width: 200px;
+  margin-bottom: 30px;
+  margin-left: auto;
+
+  .Dropdown-control {
+    border-radius: 20px;
+  }
+
+  &.is-open .Dropdown-control {
+    border-radius: 20px 20px 0px 0px;
+  }
+
+  .Dropdown-menu {
+    border-radius: 0px 0px 20px 20px;
+  }
+`;
+
 export const List = styled.ul`
   position: relative;
   display: grid;
