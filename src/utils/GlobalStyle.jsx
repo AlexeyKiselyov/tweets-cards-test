@@ -1,5 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
 
+import pinkElipse from '../assets/images/pink_elipse.svg';
+import purpleElipse from '../assets/images/purple_elipse.svg';
+
 export const GlobalStyle = createGlobalStyle`
     *,
 ::after,
@@ -38,8 +41,17 @@ body {
   &::-webkit-scrollbar-thumb {
     border-radius: 10px;
     background-color:#5CD3A8;}
+}
 
-
+@media screen and (min-width: 768px) {
+  body {
+    background-color: #e7eaf2;
+    background-image: url(${pinkElipse}),url(${purpleElipse});
+    background-repeat: no-repeat,no-repeat;
+    background-position: top -150px right -150px, bottom -130px left -142px;
+    background-attachment:fixed;
+    z-index: -2;
+  }  
 }
 
 ul, ol{
@@ -73,5 +85,9 @@ textarea {
 button{
   cursor: pointer;
   border: none;
+}
+
+a {
+  text-decoration: none;
 }
 `;

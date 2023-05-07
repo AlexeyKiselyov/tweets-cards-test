@@ -9,7 +9,7 @@ import { Container } from '../../components/Common/Conteiner/Conteiner';
 
 import { BtnLoadMore, DropdownStyle, List } from './TweetsPage.styled.js';
 
-export const TweetsPage = () => {
+const TweetsPage = () => {
   // dropdown options
   const options = ['Show all', 'Follow', 'Followings'];
   const defaultOption = options[0];
@@ -102,3 +102,5 @@ export const TweetsPage = () => {
     </Section>
   );
 };
+
+export default TweetsPage;
