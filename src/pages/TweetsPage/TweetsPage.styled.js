@@ -1,11 +1,43 @@
-import styled from 'styled-components';
-
 import Dropdown from 'react-dropdown';
 import 'react-dropdown/style.css';
 
+import { Link } from 'react-router-dom';
+
+import styled from 'styled-components';
+
+export const ControlsWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 0px 15px 30px 15px;
+`;
+
+export const LinkBack = styled(Link)`
+  padding: 1px 10px;
+
+  border: 1px solid;
+  border-radius: 20px;
+
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  :hover,
+  :focus {
+    border-color: #2196f3;
+  }
+
+  :hover svg,
+  :focus svg {
+    fill: #2196f3;
+  }
+
+  svg {
+    transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+`;
+
 export const DropdownStyle = styled(Dropdown)`
   width: 200px;
-  margin-bottom: 30px;
   margin-left: auto;
 
   .Dropdown-control {

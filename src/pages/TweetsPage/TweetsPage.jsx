@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
 
+import { IoMdArrowBack, IoIosArrowUp } from 'react-icons/io';
+import ScrollToTop from 'react-scroll-to-top';
+
 import getUsers from '../../services/getUsers';
 
 import { Tweet } from '../../components/Tweet/Tweet';
@@ -7,7 +10,13 @@ import { Loader } from '../../components/Loader/Loader';
 import { Section } from '../../components/Common/Section/Section';
 import { Container } from '../../components/Common/Conteiner/Conteiner';
 
-import { BtnLoadMore, DropdownStyle, List } from './TweetsPage.styled.js';
+import {
+  BtnLoadMore,
+  ControlsWrapper,
+  DropdownStyle,
+  LinkBack,
+  List,
+} from './TweetsPage.styled.js';
 
 const TweetsPage = () => {
   // dropdown options
@@ -68,11 +77,16 @@ const TweetsPage = () => {
   return (
     <Section>
       <Container>
-        <DropdownStyle
-          options={options}
-          onChange={onSelect}
-          value={defaultOption}
-        />
+        <ControlsWrapper>
+          <LinkBack to="/">
+            <IoMdArrowBack size={30} />
+          </LinkBack>
+          <DropdownStyle
+            options={options}
+            onChange={onSelect}
+            value={defaultOption}
+          />
+        </ControlsWrapper>
         {error && error}
         {!users.length && !isLoading ? (
           'Oopps...There is no data...('
@@ -98,6 +112,10 @@ const TweetsPage = () => {
           </BtnLoadMore>
         )}
         {isLoading && <Loader />}
+        <ScrollToTop
+          smooth
+          component={<IoIosArrowUp size={25} color="#2196f3" />}
+        />
       </Container>
     </Section>
   );

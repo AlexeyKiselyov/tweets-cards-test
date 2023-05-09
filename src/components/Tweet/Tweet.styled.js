@@ -118,4 +118,11 @@ export const FollowBtn = styled.button`
   text-transform: uppercase;
 
   color: #373737;
+
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  :hover,
+  :focus {
+    scale: 1.02;
+  }
 `;
